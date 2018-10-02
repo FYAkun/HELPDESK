@@ -8,19 +8,24 @@ xhr.send();
 }
 </script>
 
-<h1>Sveiki atvyke i gedimu registra</h1>
-<a href="logout/"><button>Atsijungti</button></a>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'helpdesk/style.css' %}" />
+<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<head>
+    <Title>HELPDESK</Title>
+</head>
 
+<body>
+<h1>Sveiki atvyke i gedimu registra</h1>
+<div id="atsijungimas"><a href="logout/"><button>Atsijungti</button></a></div>
+
+<div id="funkcijos">
 {% if request.user.is_superuser %}
-    <table>
-        <a href="vart_kurimas/"><button>Naujo vartotojo sukurimas</button></a>
-        <tr></tr>
-    </table>
+    <a href="vart_kurimas/"><button>Naujo vartotojo sukurimas</button></a>
+
 {%endif%}
-<table>
     <a href="naujas/"><button>Registruoti nauja gedima</button></a>
-    <tr></tr>
-</table>
+</div>
 
 {% if request.user.is_superuser %}
     <h2>Nesutvarkyti gedimai</h2>
@@ -28,19 +33,13 @@ xhr.send();
     <h2>Jusu uzregistruoti gedimai, kurie dar nesutvarkyti</h2>
 {%endif%}
 
+</body>
 
-<table>
-<a href="visi/">
-    <button>Visi</button>
-</a>
-<a href="atlikti/">
-    <button>Atlikti</button>
-</a>
-<a href="">
-    <button>Neatlikti</button>
-</a>
-    <tr></tr>
-</table>
+
+<a href="visi/"><button>Visi</button></a>
+<a href="atlikti/"><button>Atlikti</button></a>
+<a href=""><button>Neatlikti</button></a>
+
 <table>
     <tr>
         <th>Problemos aprasymas</th>

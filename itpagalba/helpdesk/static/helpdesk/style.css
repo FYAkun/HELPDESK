@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    color: green;
+    font-family: 'Lobster';
+}
+
+h2 {
+    color: green;
+}
+
+table, th, td {
+   border: 1px solid black;
+}
+
+table {font-family: 'Lobster'}
+#atsijungimas button {position: absolute;
+right: 10px;
+top: 5px;}
+#funkcijos button {width: 14%;
+margin-left: 43%;
+margin-right: 43%;}

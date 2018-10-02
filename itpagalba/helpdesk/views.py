@@ -62,9 +62,21 @@ def perziura_tipai(request, tipas_id):
 
 def perziura_vienas(request, irasas_id):
     if request.user.is_authenticated and request.user.is_superuser:
-        konkretus_irasas = Irasas.objects.filter(pk=irasas_id)
-        context = {'konkretus_irasas': konkretus_irasas}
-        return render(request, 'helpdesk/irasai.html', context)
+        print(request.POST)
+        print(request.POST.keys())
+        new_comment = {}
+        for k,v in request.POST.iteritems():
+            if k == 'csrfmiddlewaretoken':
+                continue
+            new_comment[k] = v
+        print(new_comment)
+        if new_comment:
+            Irasas.objects.filter(pk=irasas_id).update(komentaras=new_comment.get('komentaras'))
+            return HttpResponseRedirect('../../')
+        else:
+            konkretus_irasas = Irasas.objects.filter(pk=irasas_id)
+            context = {'konkretus_irasas': konkretus_irasas}
+            return render(request, 'helpdesk/irasai.html', context)
     else:
         return HttpResponseRedirect('../../')
 

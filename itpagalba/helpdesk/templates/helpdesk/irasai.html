@@ -13,13 +13,18 @@
     </tr>
     {%for item in konkretus_irasas%}
     <tr>
+        <form method="post">
         <td>{{item.problemos_aprasymas}}</td>
         <td>{{item.kabineto_nr}}</td>
         <td>{{item.autorius}}</td>
         <td>{{item.reg_data}}</td>
         <td>{{item.pab_data}}</td>
-        <td>{{item.komentaras}}</td>
+        <td>
+            {% csrf_token %}
+            <textarea name="komentaras" rows="5" cols="30"></textarea>
+        </td>
         <td><a href="../../tipai/{{item.prob_tipas_id}}">{{item.prob_tipas_id}}</td>
+        <input type="submit" value="Prideti komentara"></form>
     </tr>
     {%endfor%}
 </table>
