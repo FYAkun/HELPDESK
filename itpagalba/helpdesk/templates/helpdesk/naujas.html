@@ -1,0 +1,21 @@
+<h1>Sveiki atvyke i gedimu registra</h1>
+<h2>Naujo gedimo registravimas</h2>
+<h3><a href="../">Grizti i pradzia</a></h3>
+
+<form method="post">
+    {% csrf_token %}
+    Problema:<br>
+    <textarea name="problemos_aprasymas" rows="5" cols="30">Trumpai aprasykite gedima.</textarea><br>
+    Kabinetas:<br>
+    <input type="text" name="kabineto_nr"><br>
+    Darbuotojas:<br>
+    <input type="text" name="autorius"><br>
+    Gedimo rusis:<br>
+    <select name="prob_tipas_id">
+        <option name="optionai" value="1">Sisteminis gedimas</option>
+        <option name="optionai" value="2">Kompiuterinis gedimas</option>
+        <option name="optionai" value="3">Reikalinga pagalba</option>
+        <option name="optionai" value="4">Kita</option>
+    </select><br><br>
+    <input type="submit" value="Irasyti">
+</form>

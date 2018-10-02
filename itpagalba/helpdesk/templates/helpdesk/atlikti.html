@@ -1,0 +1,55 @@
+<h1>Sveiki atvyke i gedimu registra</h1>
+<a href="../logout/"><button>Atsijungti</button></a>
+
+{% if request.user.is_superuser %}
+    <table>
+        <a href="../vart_kurimas/"><button>Naujo vartotojo sukurimas</button></a>
+        <tr></tr>
+    </table>
+{%endif%}
+<table>
+    <a href="../naujas/"><button>Registruoti nauja gedima</button></a>
+    <tr></tr>
+</table>
+
+{% if request.user.is_superuser %}
+    <h2>Sutvarkyti gedimai</h2>
+{% else %}
+    <h2>Jusu registruoti gedimai, kurie jau sutvarkyti</h2>
+{% endif %}
+
+<table>
+<a href="../visi">
+    <button>Visi</button>
+</a>
+<a href="">
+    <button>Atlikti</button>
+</a>
+<a href="../">
+    <button>Neatlikti</button>
+</a>
+    <tr></tr>
+</table>
+
+<table>
+    <tr>
+        <th>Problemos aprasymas</th>
+        <th>Kabineto numeris</th>
+        <th>Autorius</th>
+        <th>Registracijos data</th>
+        <th>Uzbaigimo data</th>
+        <th>Komentaras</th>
+        <th>Problemos tipas</th>
+    </tr>
+    {%for item in visas_sarasas%}
+    <tr>
+        <td><a href="../irasai/{{item.id}}">{{item.problemos_aprasymas}}</td>
+        <td>{{item.kabineto_nr}}</td>
+        <td>{{item.autorius}}</td>
+        <td>{{item.reg_data}}</td>
+        <td>{{item.pab_data}}</td>
+        <td>{{item.komentaras}}</td>
+        <td><a href="../tipai/{{item.prob_tipas_id}}">{{item.prob_tipas_id}}</td>
+    </tr>
+    {%endfor%}
+</table>

@@ -1,0 +1,17 @@
+<h1>Sveiki atvyke i gedimu registra</h1>
+<h2>Naujo gedimo registravimas</h2>
+<h3><a href="../">Grizti i pradzia</a></h3>
+
+<form method="post">
+    {% csrf_token %}
+    Vartotojo vardas:<br>
+    <input type="text" name="username"><br>
+    Slaptazodis:<br>
+    <input type="password" name="password"><br>
+    Vartotojo lygis:<br>
+    <select name="is_superuser">
+        <option name="optionai" value="0">Darbuotojas</option>
+        <option name="optionai" value="1">Administratorius</option>
+    </select><br><br>
+    <input type="submit" value="Irasyti">
+</form>

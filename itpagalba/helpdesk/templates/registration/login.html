@@ -1,0 +1,8 @@
+<h1>Sveiki atvyke i gedimu registra</h1>
+<h2>Prasome prisijungti</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Prisijungti">
+</form>

@@ -1,0 +1,25 @@
+<h1>Sveiki atvyke i gedimu registra</h1>
+<h2>Jus ziurite irasus pagal tipa</h2>
+<h3><a href="../../">Grizti i pradzia</a></h3>
+<table>
+    <tr>
+        <th>Problemos aprasymas</th>
+        <th>Kabineto numeris</th>
+        <th>Autorius</th>
+        <th>Registracijos data</th>
+        <th>Uzbaigimo data</th>
+        <th>Komentaras</th>
+        <th>Problemos tipas</th>
+    </tr>
+    {%for item in sarasas_pagal_tipus%}
+    <tr>
+        <td><a href="../../irasai/{{item.id}}">{{item.problemos_aprasymas}}</td>
+        <td>{{item.kabineto_nr}}</td>
+        <td>{{item.autorius}}</td>
+        <td>{{item.reg_data}}</td>
+        <td>{{item.pab_data}}</td>
+        <td>{{item.komentaras}}</td>
+        <td>{{item.prob_tipas_id}}</td>
+    </tr>
+    {%endfor%}
+</table>
