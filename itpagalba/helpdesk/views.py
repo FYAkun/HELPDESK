@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .models import Irasas
+from .models import Tipas, Irasas
 import ctypes
 import datetime
 
@@ -112,11 +112,11 @@ def naujas(request):
     kuriame patalpinama informacija is formos, vartotojo username ir dabartine data"""
     if request.user.is_authenticated:
         new_record = {}
+        tipai = Tipas.objects.all()
         for k,v in request.POST.iteritems():
             if k == 'csrfmiddlewaretoken':
                 continue
             new_record[k] = v
-        print(new_record)
         if new_record:
                 u=request.user
                 q=Irasas(problemos_aprasymas=new_record.get('problemos_aprasymas'), kabineto_nr=new_record.get('kabineto_nr'),\
@@ -126,7 +126,8 @@ def naujas(request):
                 return HttpResponseRedirect('../')
         else:
             pass
-        return render(request, 'helpdesk/naujas.html')
+        context = {'tipai': tipai}
+        return render(request, 'helpdesk/naujas.html', context)
     else:
         return HttpResponseRedirect('login/')
 
