@@ -1,15 +1,14 @@
-<h1>Sveiki atvyke i gedimu registra</h1>
+{% extends 'helpdesk/index2.html' %}
+{% block content %}
 <h2>Naujo gedimo registravimas</h2>
-<h3><a href="../">Grizti i pradzia</a></h3>
+<a href="../"><button id="grizimas_atgal">Grizti i pradzia</button></a>
 
-<form method="post">
+<form id="iraso_reg_lentele" method="post">
     {% csrf_token %}
     Problema:<br>
     <textarea name="problemos_aprasymas" rows="5" cols="30">Trumpai aprasykite gedima.</textarea><br>
     Kabinetas:<br>
-    <input type="text" name="kabineto_nr"><br>
-    Darbuotojas:<br>
-    <input type="text" name="autorius"><br>
+    <input id="kabnumeris"type="text" name="kabineto_nr"><br>
     Gedimo rusis:<br>
     <select name="prob_tipas_id">
         <option name="optionai" value="1">Sisteminis gedimas</option>
@@ -17,5 +16,6 @@
         <option name="optionai" value="3">Reikalinga pagalba</option>
         <option name="optionai" value="4">Kita</option>
     </select><br><br>
-    <input type="submit" value="Irasyti">
+    <input id="gedimo_reg" type="submit" value="Registruoti">
 </form>
+{% endblock %}

@@ -1,17 +1,19 @@
-<h1>Sveiki atvyke i gedimu registra</h1>
-<h2>Naujo gedimo registravimas</h2>
-<h3><a href="../">Grizti i pradzia</a></h3>
+{% extends 'helpdesk/index2.html' %}
+{% block content %}
+<h2>Naujo vartotojo sukurimas</h2>
+<a href="../"><button id="grizimas_atgal">Grizti i pradzia</button></a>
 
-<form method="post">
+<form id="vart_kurimo_lentele" method="post">
     {% csrf_token %}
     Vartotojo vardas:<br>
-    <input type="text" name="username"><br>
+    <input id="vart_vardas" type="text" name="username"><br>
     Slaptazodis:<br>
-    <input type="password" name="password"><br>
+    <input id="slaptazodis" type="password" name="password"><br>
     Vartotojo lygis:<br>
     <select name="is_superuser">
         <option name="optionai" value="0">Darbuotojas</option>
         <option name="optionai" value="1">Administratorius</option>
     </select><br><br>
-    <input type="submit" value="Irasyti">
+    <input id="vartotojo_reg" type="submit" value="Irasyti">
 </form>
+{% endblock %}

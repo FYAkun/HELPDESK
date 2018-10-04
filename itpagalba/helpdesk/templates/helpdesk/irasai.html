@@ -1,6 +1,8 @@
-<h1>Sveiki atvyke i gedimu registra</h1>
+{% extends 'helpdesk/index.html' %}
+{% block content %}
 <h2>Jus ziurite i konkretu irasa</h2>
-<h3><a href="../../">Grizti i pradzia</a></h3>
+{% endblock %}
+{% block content2 %}
 <table>
     <tr>
         <th>Problemos aprasymas</th>
@@ -10,6 +12,7 @@
         <th>Uzbaigimo data</th>
         <th>Komentaras</th>
         <th>Problemos tipas</th>
+        <th>Issaugoti komentara</th>
     </tr>
     {%for item in konkretus_irasas%}
     <tr>
@@ -23,8 +26,9 @@
             {% csrf_token %}
             <textarea name="komentaras" rows="5" cols="30"></textarea>
         </td>
-        <td><a href="../../tipai/{{item.prob_tipas_id}}">{{item.prob_tipas_id}}</td>
-        <input type="submit" value="Prideti komentara"></form>
+        <td><a href="../../tipai/{{item.prob_tipas_id}}">{{item.prob_tipas}}</td>
+        <td><input type="submit" value="Issaugoti komentara"></form></td>
     </tr>
     {%endfor%}
 </table>
+{% endblock %}

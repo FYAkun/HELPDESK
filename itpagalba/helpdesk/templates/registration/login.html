@@ -1,8 +1,19 @@
-<h1>Sveiki atvyke i gedimu registra</h1>
+{% extends 'helpdesk/index2.html' %}
+{% block content %}
 <h2>Prasome prisijungti</h2>
 
-<form method="post">
+<form id="prisijungimo_forma" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Prisijungti">
+    <table id="prisijungimo_lenta">
+        <tr>
+            <td>Vartotojo vardas:</td>
+            <td><input id="vart_vardas" type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>Slaptazodis:</td><br>
+            <td><input id="slaptazodis" type="password" name="password"></td>
+        </tr>
+    </table>
+    <input id="mygtukas_login" type="submit" value="Prisijungti">
 </form>
+{% endblock %}

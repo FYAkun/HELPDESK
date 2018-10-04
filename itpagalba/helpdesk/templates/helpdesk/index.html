@@ -1,72 +1,32 @@
-<script>
-function myFunction(item) {
-  var my_id = item.value
-  console.log(my_id)
-  var xhr = new XMLHttpRequest();
-xhr.open('GET', "?id="+my_id, true);
-xhr.send();
-}
-</script>
-
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'helpdesk/style.css' %}" />
 <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
 <head>
     <Title>HELPDESK</Title>
 </head>
 
 <body>
+
 <h1>Sveiki atvyke i gedimu registra</h1>
-<div id="atsijungimas"><a href="logout/"><button>Atsijungti</button></a></div>
-
-<div id="funkcijos">
-{% if request.user.is_superuser %}
-    <a href="vart_kurimas/"><button>Naujo vartotojo sukurimas</button></a>
-
-{%endif%}
-    <a href="naujas/"><button>Registruoti nauja gedima</button></a>
-</div>
+<div id="atsijungimas"><a href="http://127.0.0.1:8000/helpdesk/logout/"><button>Atsijungti</button></a></div>
 
 {% if request.user.is_superuser %}
-    <h2>Nesutvarkyti gedimai</h2>
-{% else %}
-    <h2>Jusu uzregistruoti gedimai, kurie dar nesutvarkyti</h2>
+    <a href="http://127.0.0.1:8000/admin/"><button id="admin_mygtukas">Administravimas</button></a>
+    <a href="http://127.0.0.1:8000/helpdesk/vart_kurimas/"><button id="mygtukas">Naujo vartotojo sukurimas</button></a>
 {%endif%}
+
+{% block content %}
+{% endblock %}
+
+<a href="http://127.0.0.1:8000/helpdesk/naujas/"><button id="mygtukas2">Registruoti nauja gedima</button></a>
+<table id="perziuros_mygtukai">
+    <th>Perziura:</th>
+    <th><a href="http://127.0.0.1:8000/helpdesk/visi/"><button type="button" class="btn">Visi</button></a></th>
+    <th><a href="http://127.0.0.1:8000/helpdesk/atlikti/"><button type="button" class="btn">Atlikti</button></a></th>
+    <th><a href="http://127.0.0.1:8000/helpdesk/"><button type="button" class="btn">Neatlikti</button></a></th>
+</table>
+{% block content2 %}
+{% endblock %}
 
 </body>
-
-
-<a href="visi/"><button>Visi</button></a>
-<a href="atlikti/"><button>Atlikti</button></a>
-<a href=""><button>Neatlikti</button></a>
-
-<table>
-    <tr>
-        <th>Problemos aprasymas</th>
-        <th>Kabineto numeris</th>
-        <th>Autorius</th>
-        <th>Registracijos data</th>
-        <th>Uzbaigimo data</th>
-        <th>Komentaras</th>
-        <th>Problemos tipas</th>
-        {% if request.user.is_superuser %}
-            <th>Problemos atlikimas</th>
-        {%endif%}
-    </tr>
-    {%for item in visas_sarasas%}
-    <tr>
-        <td><a href="irasai/{{item.id}}">{{item.problemos_aprasymas}}</td>
-        <td>{{item.kabineto_nr}}</td>
-        <td>{{item.autorius}}</td>
-        <td>{{item.reg_data}}</td>
-        <td>{{item.pab_data}}</td>
-        <td>{{item.komentaras}}</td>
-        <td><a href="tipai/{{item.prob_tipas_id}}">{{item.prob_tipas_id}}</td>
-        {% if request.user.is_superuser %}
-            {% if item.pab_data is null%}
-                <td><button id="{{item.id}}" value="{{item.id}}"  onclick="myFunction(this)">Atlikta</button></td>
-            {%endif%}
-        {%endif%}
-    </tr>
-    {%endfor%}
-</table>

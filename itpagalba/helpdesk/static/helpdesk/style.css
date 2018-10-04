@@ -1,21 +1,115 @@
+button, input {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    font-family: 'Lobster';
+    background-color: #c8add1;
+    border-radius: 8px;
+}
+button:hover, input:hover {
+    background-color: #7b0f89;
+    color: white;
+    border-radius: 10px;
+}
 h1 {
     text-align: center;
-    color: green;
+    color: #7b0f89;
     font-family: 'Lobster';
 }
 
+body {
+background-color: lightgrey
+}
+
 h2 {
+    font-family: 'Lobster';
+    text-align: center;
     color: green;
 }
 
 table, th, td {
-   border: 1px solid black;
+    font-family: 'Lobster';
+    border: 1px solid black;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
-table {font-family: 'Lobster'}
-#atsijungimas button {position: absolute;
+a {
+    color: #7b0f89;
+    }
+
+#atsijungimas button {
+position: absolute;
 right: 10px;
-top: 5px;}
-#funkcijos button {width: 14%;
+top: 5px;
+}
+
+#mygtukas {
+position: absolute;
+right: 85px;
+top: 5px;
+}
+
+#mygtukas2 {
+width: 14%;
 margin-left: 43%;
-margin-right: 43%;}
+margin-right: 43%;
+}
+
+#vart_kurimo_lentele {
+text-align: center
+}
+
+#iraso_reg_lentele {
+text-align: center
+}
+
+#grizimas_atgal {
+width: 14%;
+margin-left: 43%;
+margin-right: 43%;
+}
+
+#perziuros_mygtukai {
+    border: None;
+    width:20%;
+    margin-left:40%;
+    margin-right:40%;
+}
+
+#perziuros_mygtukai th {
+border: None;
+}
+
+#admin_mygtukas {
+position: absolute;
+left: 10px;
+top: 5px;
+}
+
+#kabnumeris, #vart_vardas, #slaptazodis, #prisijungimo_mygtukas {
+background-color: white;
+text-color: black;
+}
+#kabnumeris:hover, #vart_vardas:hover, #slaptazodis:hover, #prisijungimo_mygtukas:hover {
+background-color: white;
+color: black;
+}
+
+#prisijungimo_lenta {
+    border: None;
+    width:20%;
+    margin-left:40%;
+    margin-right:40%;
+}
+
+#mygtukas_login {
+    border-radius: 8px;
+    width:8%;
+    margin-left:46%;
+    margin-right:46%;
+}
+
+#prisijungimo_lenta td {
+border: None;
+}

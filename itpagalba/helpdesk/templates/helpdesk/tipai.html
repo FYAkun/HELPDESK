@@ -1,6 +1,8 @@
-<h1>Sveiki atvyke i gedimu registra</h1>
+{% extends 'helpdesk/index.html' %}
+{% block content %}
 <h2>Jus ziurite irasus pagal tipa</h2>
-<h3><a href="../../">Grizti i pradzia</a></h3>
+{% endblock %}
+{% block content2 %}
 <table>
     <tr>
         <th>Problemos aprasymas</th>
@@ -19,7 +21,8 @@
         <td>{{item.reg_data}}</td>
         <td>{{item.pab_data}}</td>
         <td>{{item.komentaras}}</td>
-        <td>{{item.prob_tipas_id}}</td>
+        <td>{{item.prob_tipas}}</td>
     </tr>
     {%endfor%}
 </table>
+{% endblock %}
