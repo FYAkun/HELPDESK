@@ -2,9 +2,9 @@
 from __future__ import unicode_literals
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .models import Tipas, Irasas
+from .models import Irasas
 import ctypes
 import datetime
 
@@ -163,7 +163,7 @@ def nvartotojas(request):
         if new_user:
             new_username=new_user.get('username')
             if User.objects.filter(username=new_username).exists():
-                ctypes.windll.user32.MessageBoxW(0, "Toks vartotojas jau yra", "Klaida", 0)
+                ctypes.windll.user32.MessageBoxW(0, "Toks vartotojas jau yra", "Klaida", 0 + 4096)
             else:
                 user=User.objects.create_user(username=new_username, password=new_user.get('password'),\
                     is_superuser=new_user.get('is_superuser'))
