@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#Isikeliam savo app i Installed_apps sarasa
 INSTALLED_APPS = [
     'helpdesk.apps.HelpdeskConfig',
     'django.contrib.admin',
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.forms',
 ]
 
 MIDDLEWARE = [
@@ -119,9 +118,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+#Nusirodome kur laikomi failai, kuriuose saugomas JS/CSS nustatymai ir laikomi failai pvz jpeg/gif
 STATIC_URL = '/static/'
-
+#nusirodome kur bus nukreipta, kai prisijungsime prie sistemos
 LOGIN_REDIRECT_URL = '../'
 
-FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 

@@ -1,4 +1,6 @@
 {% load static %}
+<!-- HTML skirtas extendint i registru perziuros langus-->
+<!-- Kadangi juose visuose atvaizduojama panasi informacija, ir ju struktura panasi-->
 <link rel="stylesheet" type="text/css" href="{% static 'helpdesk/style.css' %}" />
 <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
@@ -10,12 +12,12 @@
 
 <h1>Sveiki atvyke i gedimu registra</h1>
 <div id="atsijungimas"><a href="http://127.0.0.1:8000/helpdesk/logout/"><button>Atsijungti</button></a></div>
-
+<!-- Mygtukams naudojamas pilnas HTTP adresas, kad veiktu taip pat nepriklausomai nuo dabartines direktorijos-->
 {% if request.user.is_superuser %}
     <a href="http://127.0.0.1:8000/admin/"><button id="admin_mygtukas">Administravimas</button></a>
     <a href="http://127.0.0.1:8000/helpdesk/vart_kurimas/"><button id="mygtukas">Naujo vartotojo sukurimas</button></a>
 {%endif%}
-
+<!-- I block content ikeliama informacija is atitinkamu html langu bloku-->
 {% block content %}
 {% endblock %}
 

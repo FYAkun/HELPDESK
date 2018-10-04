@@ -2,14 +2,17 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+#apsirasome objektus, ju atributus ir funkcijas
 class Tipas(models.Model):
     prob_tipas=models.CharField(max_length=30)
     def __str__(self):
         return self.prob_tipas
 
 class Irasas(models.Model):
-    prob_tipas = models.ForeignKey(Tipas, on_delete=models.CASCADE, null=True)
+    """ForeignKey padeda prie Iraso prijungti Tipus
+    DateTimeField reikia leisti kad butu tuscias, kitaip negalima bus sukurti
+    iraso kuris nebutu issprestas"""
+    prob_tipas = models.ForeignKey(Tipas, on_delete=models.CASCADE)
     problemos_aprasymas = models.CharField(max_length=200)
     kabineto_nr = models.CharField(max_length=30)
     autorius = models.CharField(max_length=50)
@@ -21,7 +24,3 @@ class Irasas(models.Model):
     def atliktas(self):
         return self.pab_data != None
 
-
-# vieta aprasyt ar atlikta
-#kas sukure irasa
-#kas atliko

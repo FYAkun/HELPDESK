@@ -1,10 +1,11 @@
 {% load static %}
+<!-- HTML skirtas extendint i naujo iraso, vartotojo ir prisijungimo langus-->
 <link rel="stylesheet" type="text/css" href="{% static 'helpdesk/style.css' %}" />
 <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <head>
     <Title>HELPDESK</Title>
 </head>
-
+<!-- Mygtukams naudojamas pilnas HTTP adresas, kad veiktu taip pat nepriklausomai nuo dabartines direktorijos-->
 <body>
 <h1>Sveiki atvyke i gedimu registra</h1>
 {% if request.user.is_authenticated %}
@@ -14,6 +15,7 @@
     <a href="http://127.0.0.1:8000/admin/"><button id="admin_mygtukas">Administravimas</button></a>
     <a href="http://127.0.0.1:8000/helpdesk/vart_kurimas/"><button id="mygtukas">Naujo vartotojo sukurimas</button></a>
 {%endif%}
+<!-- I block content ikeliama informacija is atitinkamu html langu bloku-->
 {% block content %}
 {% endblock %}
 </body>
